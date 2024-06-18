@@ -6,12 +6,18 @@ class MovieService(ABC):
     def list(self):
         pass
 
-
     @abstractmethod
-    def createMovie(self, movieName, movieReleaseDate, movieFilmRating, movieGenre, movieCountry,
-               movieRunningTime, movieSummary, moviePrice, movieImage):
+    def createMovie(self, movieData):
         pass
 
     @abstractmethod
     def readMovie(self, movieId):
+        pass
+
+    @abstractmethod
+    def removeMovie(self, movieId):
+        pass
+
+    @abstractmethod
+    def updateMovie(self, movieId, movieData):
         pass

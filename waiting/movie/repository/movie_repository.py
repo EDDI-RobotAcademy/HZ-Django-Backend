@@ -7,10 +7,17 @@ class MovieRepository(ABC):
         pass
 
     @abstractmethod
-    def create(self, movieName, movieReleaseDate, movieFilmRating, movieGenre, movieCountry,
-               movieRunningTime, movieSummary, moviePrice, movieImage):
+    def create(self, movieData):
         pass
 
     @abstractmethod
     def findByMovieId(self, movieId):
+        pass
+
+    @abstractmethod
+    def deleteByMovieId(self, movieId):
+        pass
+
+    @abstractmethod
+    def update(self, movie, movieData):
         pass
