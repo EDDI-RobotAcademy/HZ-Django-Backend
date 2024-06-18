@@ -100,7 +100,7 @@ CORS_ALLOW_HEADERS = [
     'x-requested-with',
 ]
 
-ROOT_URLCONF = 'HZ_proj.urls'
+ROOT_URLCONF = 'waiting.urls'
 
 TEMPLATES = [
     {
@@ -118,7 +118,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "HZ_proj.wsgi.application"
+WSGI_APPLICATION = "waiting.wsgi.application"
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators

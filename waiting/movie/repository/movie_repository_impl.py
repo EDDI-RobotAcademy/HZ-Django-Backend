@@ -1,6 +1,6 @@
 import os
 
-from HZ_proj import settings
+from waiting import settings
 from movie.entity.models import Movie
 from movie.repository.movie_repository import MovieRepository
 
