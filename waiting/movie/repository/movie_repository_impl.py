@@ -24,8 +24,32 @@ class MovieRepositoryImpl(MovieRepository):
     def list(self):
         return Movie.objects.all().order_by('registeredDate')
 
-    def create(self, movieData):
-        movie = Movie(**movieData)
+    def create(self, movieName, movieReleaseDate, movieFilmRating, movieGenre,
+               movieCountry, movieRunningTime, movieSummary, moviePrice, movieImage):
+        uploadDirectory = os.path.join(
+            settings.BASE_DIR,
+            'C:/TeamProject/SK-Networks-AI-1/HZ/HZ-Vue-Frontend/src/assets/images/uploadImages'
+        )
+        if not os.path.exists(uploadDirectory):
+            os.makedirs(uploadDirectory)
+
+        imagePath = os.path.join(uploadDirectory, movieImage.name)
+        with open(imagePath, 'wb+') as destination:
+            for chunk in movieImage.chunks():
+                destination.write(chunk)
+
+        movie = Movie(
+            movieName=movieName,
+            movieReleaseDate=movieReleaseDate,
+            movieFilmRating=movieFilmRating,
+            movieGenre=movieGenre,
+            movieCountry=movieCountry,
+            movieRunningTime=movieRunningTime,
+            movieSummary=movieSummary,
+            moviePrice=moviePrice,
+            movieImage=movieImage.name,
+
+        )
         movie.save()
         return movie
 
