@@ -7,7 +7,8 @@ class MovieService(ABC):
         pass
 
     @abstractmethod
-    def createMovie(self, movieData):
+    def createMovie(self, movieName, movieReleaseDate, movieFilmRating, movieGenre,
+               movieCountry, movieRunningTime, movieSummary, moviePrice, movieImage):
         pass
 
     @abstractmethod
