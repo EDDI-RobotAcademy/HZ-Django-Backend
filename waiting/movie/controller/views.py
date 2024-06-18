@@ -54,3 +54,17 @@ class MovieView(viewsets.ViewSet):
             serializer = MovieSerializer(movie)
             return Response(serializer.data)
 
+        def removeMovie(self, request, pk=None):
+            self.movieService.removeMovie(pk)
+            return Response(status=status.HTTP_204_NO_CONTENT)
+
+        def modifyMovie(self, request, pk=None):
+            movie = self.movieService.readMovie(pk)
+            serializer = MovieSerializer(movie, data=request.data, partial=True)
+
+            if serializer.is_valid():
+                updatedMovie = self.movieService.updateMovie(pk, serializer.validated_data)
+                return Response(MovieSerializer(updatedMovie).data)
+
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
