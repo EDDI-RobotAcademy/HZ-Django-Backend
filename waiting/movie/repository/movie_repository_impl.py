@@ -52,3 +52,9 @@ class MovieRepositoryImpl(MovieRepository):
         )
         movie.save()
         return movie
+
+    def findByMovieId(self, movieId):
+        try:
+            return Movie.objects.get(movieId=movieId)
+        except Movie.DoesNotExist:
+            return None

@@ -11,3 +11,7 @@ class MovieService(ABC):
     def createMovie(self, movieName, movieReleaseDate, movieFilmRating, movieGenre, movieCountry,
                movieRunningTime, movieSummary, moviePrice, movieImage):
         pass
+
+    @abstractmethod
+    def readMovie(self, movieId):
+        pass

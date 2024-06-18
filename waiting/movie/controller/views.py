@@ -48,3 +48,9 @@ class MovieView(viewsets.ViewSet):
         except Exception as e:
             print('영화 등록 과정 중 문제 발생:', e)
             return Response({ 'error': str(e)}, status=status.HTTP_400_BAD_REQUEST)
+
+        def readProduct(self, request, pk=None):
+            movie = self.movieService.readMovie(pk)
+            serializer = MovieSerializer(movie)
+            return Response(serializer.data)
+

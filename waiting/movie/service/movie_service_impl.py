@@ -28,4 +28,7 @@ class MovieServiceImpl(MovieService):
             movieName, movieReleaseDate, movieFilmRating, movieGenre, movieCountry,
             movieRunningTime, movieSummary, moviePrice, movieImage)
 
+    def readMovie(self, movieId):
+        return self.__movieRepository.findByMovieId(movieId)
+
 

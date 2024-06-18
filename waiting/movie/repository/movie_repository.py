@@ -10,3 +10,7 @@ class MovieRepository(ABC):
     def create(self, movieName, movieReleaseDate, movieFilmRating, movieGenre, movieCountry,
                movieRunningTime, movieSummary, moviePrice, movieImage):
         pass
+
+    @abstractmethod
+    def findByMovieId(self, movieId):
+        pass
