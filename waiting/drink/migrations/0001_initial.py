@@ -19,8 +19,11 @@ class Migration(migrations.Migration):
                 ('drinkType', models.CharField(max_length=128)),
                 ('drinkDescription', models.TextField()),
                 ('drinkPrice', models.DecimalField(max_digits=10, decimal_places=2)),
+                ('drinkImage', models.CharField(max_length=100, null=True)),
+
                 ('drinkRegisteredDate', models.DateTimeField(auto_now_add=True)),
                 ('drinkUpdatedDate', models.DateTimeField(auto_now=True)),
+
             ],
             options={
                 'db_table': 'drink',

@@ -23,6 +23,7 @@ class Migration(migrations.Migration):
                 ('movieRunningTime', models.CharField(max_length=32)),
                 ('movieSummary', models.TextField()),
                 ('moviePrice', models.DecimalField(max_digits=10, decimal_places=2)),
+                ('movieImage', models.CharField(max_length=100, null=True)),
 
                 ('movieRegisteredDate', models.DateTimeField(auto_now_add=True)),
                 ('movieUpdatedDate', models.DateTimeField(auto_now=True)),
