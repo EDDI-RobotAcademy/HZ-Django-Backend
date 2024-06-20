@@ -24,8 +24,8 @@ class Migration(migrations.Migration):
                 ('movieSummary', models.TextField()),
                 ('moviePrice', models.DecimalField(max_digits=10, decimal_places=2)),
 
-                ('registeredDate', models.DateTimeField(auto_now_add=True)),
-                ('updatedDate', models.DateTimeField(auto_now=True)),
+                ('movieRegisteredDate', models.DateTimeField(auto_now_add=True)),
+                ('movieUpdatedDate', models.DateTimeField(auto_now=True)),
             ],
             options={
                 'db_table': 'movie',

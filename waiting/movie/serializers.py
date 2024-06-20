@@ -8,7 +8,7 @@ class MovieSerializer(serializers.ModelSerializer):
     class Meta:
         model = Movie
         fields = ['movieId', 'movieName', 'movieReleaseDate', 'movieFilmRating', 'movieGenre', 'movieCountry',
-                  'movieRunningTime', 'movieSummary', 'moviePrice', 'movieImage', 'registeredDate', 'updatedDate']
+                  'movieRunningTime', 'movieSummary', 'moviePrice', 'movieImage', 'movieRegisteredDate', 'movieUpdatedDate']
 
-        read_only_fields = ['registeredDate', 'updatedDate']
+        read_only_fields = ['movieRegisteredDate', 'movieUpdatedDate']
         
