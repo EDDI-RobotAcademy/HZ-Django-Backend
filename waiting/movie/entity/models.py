@@ -14,8 +14,8 @@ class Movie(models.Model):
     movieImage = models.CharField(max_length=100, null=True)
 
     # 추후 이미지 관련 필드 추가
-    registeredDate = models.DateTimeField(auto_now_add=True)
-    updatedDate = models.DateTimeField(auto_now=True)
+    movieRegisteredDate = models.DateTimeField(auto_now_add=True)
+    movieUpdatedDate = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.title

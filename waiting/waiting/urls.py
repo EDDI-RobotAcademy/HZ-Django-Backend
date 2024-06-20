@@ -22,4 +22,5 @@ urlpatterns = [
     # board Domain으로 요청이 들어가는 모든 것을
     # board 디렉토리 하위의 urls.py에서 관리하겠다는 의미
     path('movie/', include('movie.urls')),
+    path('drink/', include('drink.urls')),
     ]

@@ -22,7 +22,7 @@ class MovieRepositoryImpl(MovieRepository):
         return cls.__instance
 
     def list(self):
-        return Movie.objects.all().order_by('registeredDate')
+        return Movie.objects.all().order_by('movieRegisteredDate')
 
     def create(self, movieName, movieReleaseDate, movieFilmRating, movieGenre,
                movieCountry, movieRunningTime, movieSummary, moviePrice, movieImage):
