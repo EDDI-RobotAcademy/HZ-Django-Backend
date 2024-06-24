@@ -38,6 +38,9 @@ class MovieRepositoryImpl(MovieRepository):
             for chunk in movieImage.chunks():
                 destination.write(chunk)
 
+            destination.flush()
+            os.fsync(destination.fileno())
+
         movie = Movie(
             movieName=movieName,
             movieReleaseDate=movieReleaseDate,

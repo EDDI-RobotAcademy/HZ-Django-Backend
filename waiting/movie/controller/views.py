@@ -6,10 +6,6 @@ from movie.entity.models import Movie
 from movie.serializers import MovieSerializer
 from movie.service.movie_service_impl import MovieServiceImpl
 
-
-# Create your views here.
-# viewsets를 사용하려면 rest_framework가 설정되어야 합니다.
-# pip install djangorestframework
 class MovieView(viewsets.ViewSet):
     queryset = Movie.objects.all()
     movieService = MovieServiceImpl.getInstance()
