@@ -27,6 +27,7 @@ urlpatterns = [
     path('oauth/', include('oauth.urls')),
     path('account/', include('account.urls')),
     path('foodcart/', include('foodcart.urls')),
+    path('drinkcart/', include('drinkcart.urls')),
 
 
     ]

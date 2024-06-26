@@ -1,0 +1,11 @@
+from abc import ABC, abstractmethod
+
+
+class DrinkcartService(ABC):
+    @abstractmethod
+    def drinkcartRegister(self, drinkcartData, accountId):
+        pass
+
+    @abstractmethod
+    def drinkcartList(self, accountId):
+        pass
