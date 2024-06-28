@@ -30,6 +30,9 @@ class FoodcartItemRepositoryImpl(FoodcartItemRepository):
             price=foodPrice
         )
 
+    def findById(self, id):
+        return FoodcartItem.objects.get(foodcartItemId=id)
+
     def findByFoodcart(self, foodcart):
         return list(FoodcartItem.objects.filter(foodcart=foodcart))
 

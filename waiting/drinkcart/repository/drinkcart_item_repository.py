@@ -7,6 +7,10 @@ class DrinkcartItemRepository(ABC):
         pass
 
     @abstractmethod
+    def findById(self, id):
+        pass
+
+    @abstractmethod
     def findByDrinkcart(self, drinkcart):
         pass
 
