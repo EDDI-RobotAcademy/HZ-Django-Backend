@@ -23,3 +23,6 @@ class DrinkordersRepositoryImpl(DrinkordersRepository):
         drinkorders.save()
 
         return drinkorders
+
+    def findById(self, drinkorderId):
+        return Drinkorders.objects.get(id=drinkorderId)
