@@ -22,9 +22,20 @@ class PurchaseView(viewsets.ViewSet):
             if not accountId:
                 raise ValueError('Invalid userToken')
 
-            order = data.get('order', [{}])[0]
-            foodorderId = order.get('foodorderId')
-            drinkorderId = order.get('drinkorderId')
+            # {
+            #     "userToken": "1de5ab34-1782-464c-80b6-7eec57ee07e6",
+            #     "order": [
+            #         {"foodorderId": 53},
+            #         {"drinkorderId": 51}
+            #     ]
+            # }
+            payload = data.get('payload')
+
+            foodorder = payload.get('order', [{}])[0]
+            drinkorder = payload.get('order', [{}])[1]
+
+            foodorderId = foodorder.get('foodorderId')
+            drinkorderId = drinkorder.get('drinkorderId')
             print(f"foodorderId: {foodorderId}")
             print(f"drinkorderId: {drinkorderId}")
 
@@ -36,6 +47,10 @@ class PurchaseView(viewsets.ViewSet):
             return Response({'error': str(e)}, status=status.HTTP_400_BAD_REQUEST)
 
     def readPurchase(self, request, purchaseId):
+
+        # {
+        #     "userToken": "1de5ab34-1782-464c-80b6-7eec57ee07e6"
+        # }
         try:
             data = request.data
             print(f'data: {data}, purchaseId: {purchaseId}')
