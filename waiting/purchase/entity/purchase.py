@@ -17,7 +17,7 @@ class Purchase(models.Model):
     purchase_date = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
-        return f"Purchase {self.id} by {self.account}"
+        return f"Purchase {self.id} - Account: {self.account}, Foodorder: {self.foodorder}, Drinkorder: {self.drinkorder}"
 
     class Meta:
         db_table = 'purchase'

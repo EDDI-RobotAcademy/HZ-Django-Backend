@@ -36,7 +36,7 @@ class PurchaseServiceImpl(PurchaseService):
     def readPurchaseDetails(self, purchaseId, accountId):
         try:
             purchase = self.__purchaseRepository.findById(purchaseId)
-            print(f"purchase: {purchase}")
+
             if not purchase:
                 raise ValueError('Purchase not found')
 
@@ -45,14 +45,19 @@ class PurchaseServiceImpl(PurchaseService):
 
             account = purchase.account
 
+            account_login_type = account.loginType.name if hasattr(account.loginType, 'name') \
+                else str(account.loginType)
+            account_role_type = account.roleType.name if hasattr(account.roleType, 'name') \
+                else str(account.roleType)
+
             purchase_details = {
                 'purchase': {
                     'id': purchase.id,
-                    'purchase_date': purchase.purchase_date,
+                    'purchase_date': purchase.purchase_date.isoformat(),
                     'account': {
                         'id': account.id,
-                        'loginType': account.loginType,
-                        'roleType': account.roleType
+                        'loginType': account_login_type,
+                        'roleType': account_role_type
                     }
                 },
                 'foodorder': None,
@@ -64,7 +69,7 @@ class PurchaseServiceImpl(PurchaseService):
                 purchase_details['foodorder'] = {
                     'id': foodorder.id,
                     'status': foodorder.status,
-                    'created_date': foodorder.created_date
+                    'created_date': foodorder.created_date.isoformat()
                 }
 
             if purchase.drinkorder:
@@ -72,8 +77,10 @@ class PurchaseServiceImpl(PurchaseService):
                 purchase_details['drinkorder'] = {
                     'id': drinkorder.id,
                     'status': drinkorder.status,
-                    'created_date': drinkorder.created_date
+                    'created_date': drinkorder.created_date.isoformat()
                 }
+
+            # print(f"purchase_details: {purchase_details}")
 
             return purchase_details
 
