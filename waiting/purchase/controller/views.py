@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from rest_framework import viewsets, status
 from rest_framework.response import Response
+from rest_framework import serializers
 
 from oauth.service.redis_service_impl import RedisServiceImpl
 from purchase.service.purchase_service_impl import PurchaseServiceImpl
@@ -48,6 +49,7 @@ class PurchaseView(viewsets.ViewSet):
                 raise ValueError('Invalid userToken')
 
             purchase = self.purchaseService.readPurchaseDetails(purchaseId, accountId)
+            print(f"purchase: {purchase}")
 
             return Response(purchase, status=status.HTTP_200_OK)
 
