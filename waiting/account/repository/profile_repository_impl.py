@@ -40,8 +40,8 @@ class ProfileRepositoryImpl(ProfileRepository):
             print(f"닉네임 중복 검사 중 에러 발생: {e}")
             return None
 
-    def create(self, nickname, email, account):
-        profile = Profile.objects.create(nickname=nickname, email=email, account=account)
+    def create(self, nickname, email, gender, birthyear, account):
+        profile = Profile.objects.create(nickname=nickname, email=email, gender=gender, birthyear=birthyear, account=account)
         return profile
 
 
