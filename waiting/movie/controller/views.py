@@ -26,17 +26,16 @@ class MovieView(viewsets.ViewSet):
             movieCountry = data.get('movieCountry')
             movieRunningTime = data.get('movieRunningTime')
             movieSummary = data.get('movieSummary')
-            moviePrice = data.get('moviePrice')
             movieImage = request.FILES.get('movieImage')
 
 
             if not all([movieName, movieReleaseDate, movieFilmRating, movieGenre, movieCountry,
-               movieRunningTime, movieSummary, moviePrice, movieImage]):
+               movieRunningTime, movieSummary, movieImage]):
                 return Response({ 'error': '모든 내용을 채워주세요!' },
                                 status=status.HTTP_400_BAD_REQUEST)
 
             self.movieService.createMovie(movieName, movieReleaseDate, movieFilmRating, movieGenre, movieCountry,
-                                          movieRunningTime, movieSummary, moviePrice, movieImage)
+                                          movieRunningTime, movieSummary, movieImage)
 
 
             serializer = MovieSerializer(data=request.data)

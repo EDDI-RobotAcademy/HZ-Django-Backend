@@ -8,7 +8,7 @@ class MovieRepository(ABC):
 
     @abstractmethod
     def create(self, movieName, movieReleaseDate, movieFilmRating, movieGenre,
-               movieCountry, movieRunningTime, movieSummary, moviePrice, movieImage):
+               movieCountry, movieRunningTime, movieSummary, movieImage):
         pass
 
     @abstractmethod

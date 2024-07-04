@@ -25,7 +25,7 @@ class MovieRepositoryImpl(MovieRepository):
         return Movie.objects.all().order_by('movieRegisteredDate')
 
     def create(self, movieName, movieReleaseDate, movieFilmRating, movieGenre,
-               movieCountry, movieRunningTime, movieSummary, moviePrice, movieImage):
+               movieCountry, movieRunningTime, movieSummary, movieImage):
         uploadDirectory = os.path.join(
             settings.BASE_DIR,
             'C:/TeamProject/SK-Networks-AI-1/HZ/HZ-Vue-Frontend/src/assets/images/uploadImages'
@@ -49,7 +49,6 @@ class MovieRepositoryImpl(MovieRepository):
             movieCountry=movieCountry,
             movieRunningTime=movieRunningTime,
             movieSummary=movieSummary,
-            moviePrice=moviePrice,
             movieImage=movieImage.name,
 
         )

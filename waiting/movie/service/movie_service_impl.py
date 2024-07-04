@@ -23,9 +23,9 @@ class MovieServiceImpl(MovieService):
         return self.__movieRepository.list()
 
     def createMovie(self, movieName, movieReleaseDate, movieFilmRating, movieGenre,
-               movieCountry, movieRunningTime, movieSummary, moviePrice, movieImage):
+               movieCountry, movieRunningTime, movieSummary, movieImage):
         return self.__movieRepository.create(movieName, movieReleaseDate, movieFilmRating, movieGenre,
-               movieCountry, movieRunningTime, movieSummary, moviePrice, movieImage)
+               movieCountry, movieRunningTime, movieSummary, movieImage)
 
     def readMovie(self, movieId):
         return self.__movieRepository.findByMovieId(movieId)
