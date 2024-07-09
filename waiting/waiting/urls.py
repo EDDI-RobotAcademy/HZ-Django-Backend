@@ -32,5 +32,6 @@ urlpatterns = [
     path('drinkorders/', include('drinkorders.urls')),
     path('purchase/', include('purchase.urls')),
     path('view/', include('view.urls')),
-    path('subscription/', include('subscription.urls'))
+    path('subscription/', include('subscription.urls')),
+    path('subscription_manage/', include('subscription_manage.urls'))
  ]
