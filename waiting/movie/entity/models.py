@@ -4,16 +4,14 @@ from django.db import models
 class Movie(models.Model):
     movieId = models.AutoField(primary_key=True)
     movieName = models.CharField(max_length=128, null=False)
-    movieReleaseDate = models.CharField(max_length=128, null=False)     # 개봉일자
-    movieFilmRating = models.CharField(max_length=32, null=False)       # 영상물 등급
+    movieReleaseDate = models.CharField(max_length=128, null=False)
+    movieFilmRating = models.CharField(max_length=32, null=False)
     movieGenre = models.CharField(max_length=128, null=False)
-    movieCountry = models.CharField(max_length=128, null=False)         # 제작 국가
+    movieCountry = models.CharField(max_length=128, null=False)
     movieRunningTime = models.CharField(max_length=32, null=False)
     movieSummary = models.TextField()
-    moviePrice = models.DecimalField(max_digits=10, decimal_places=2)
     movieImage = models.CharField(max_length=100, null=True)
 
-    # 추후 이미지 관련 필드 추가
     movieRegisteredDate = models.DateTimeField(auto_now_add=True)
     movieUpdatedDate = models.DateTimeField(auto_now=True)
 
