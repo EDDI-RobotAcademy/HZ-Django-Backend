@@ -33,6 +33,6 @@ class DrinkServiceImpl(DrinkService):
 
     def updateDrink(self, drinkId, drinkData):
         drink = self.__drinkRepository.findByDrinkId(drinkId)
-        return self.__drinkRepository.update(drink, drinkData)
+        return self.__drinkRepository.update(drink, drinkData, )
 
 

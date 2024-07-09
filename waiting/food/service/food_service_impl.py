@@ -33,6 +33,6 @@ class FoodServiceImpl(FoodService):
 
     def updateFood(self, foodId, foodData):
         food = self.__foodRepository.findByFoodId(foodId)
-        return self.__foodRepository.update(food, foodData)
+        return self.__foodRepository.update(food, foodData, )
 
 

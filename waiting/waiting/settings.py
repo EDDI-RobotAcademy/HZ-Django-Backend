@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'purchase',
     'view',
     'subscription',
+    'subscription_manage'
 ]
 
 MIDDLEWARE = [

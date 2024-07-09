@@ -34,4 +34,4 @@ class SubscriptionServiceImpl(SubscriptionService):
 
     def updateSubscription(self, subscriptionId, subscriptionData):
         subscription = self.__subscriptionRepository.findBySubscriptionId(subscriptionId)
-        return self.__subscriptionRepository.update(subscription, subscriptionData)
+        return self.__subscriptionRepository.update(subscription, subscriptionData, )

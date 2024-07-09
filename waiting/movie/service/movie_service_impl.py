@@ -35,6 +35,6 @@ class MovieServiceImpl(MovieService):
 
     def updateMovie(self, movieId, movieData):
         movie = self.__movieRepository.findByMovieId(movieId)
-        return self.__movieRepository.update(movie, movieData)
+        return self.__movieRepository.update(movie, movieData, )
 
 
