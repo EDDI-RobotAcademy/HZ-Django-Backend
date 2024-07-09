@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'drinkorders',
     'purchase',
     'view',
+    'subscription',
 ]
 
 MIDDLEWARE = [
