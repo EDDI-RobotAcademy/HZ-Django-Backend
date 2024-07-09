@@ -26,7 +26,7 @@ class SubscriptionView(viewsets.ViewSet):
             if not all([subscriptionName, subscriptionType, subscriptionPrice]):
                 return Response({'error': '모든 내용을 채워주세요.'}, status=status.HTTP_400_BAD_REQUEST)
 
-            self.subscriptionService.createSubscription((subscriptionName, subscriptionType, subscriptionPrice))
+            self.subscriptionService.createSubscription(subscriptionName, subscriptionType, subscriptionPrice)
             return Response(status=status.HTTP_201_CREATED)
 
         except Exception as e:

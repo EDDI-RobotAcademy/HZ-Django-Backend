@@ -71,3 +71,5 @@ class PurchaseView(viewsets.ViewSet):
         except Exception as e:
             print('주문 상세 내역 조회 중 문제 발생:', e)
             return Response({'error': str(e)}, status=status.HTTP_400_BAD_REQUEST)
+
+
