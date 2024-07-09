@@ -1,3 +1,5 @@
+from django.core.paginator import Paginator
+
 from drinkorders.entity.drinkorders import Drinkorders
 from foodorders.entity.foodorders import Foodorders
 from purchase.entity.purchase import Purchase
