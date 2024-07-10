@@ -3,7 +3,7 @@ from abc import ABC, abstractmethod
 
 class PurchaseService(ABC):
     @abstractmethod
-    def createPurchase(self, accountId, foodorderId=None, drinkorderId=None):
+    def createPurchase(self, accountId, purchaseItemList):
         pass
 
     @abstractmethod
