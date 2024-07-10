@@ -22,22 +22,22 @@ class PurchaseRepositoryImpl(PurchaseRepository):
 
         return cls.__instance
 
-    def create(self, accountId, foodorderId=None, drinkorderId=None):
+    def create(self, accountId):
         purchase = Purchase(account_id=accountId)
 
-        if foodorderId:
-            try:
-                foodorder = Foodorders.objects.get(id=foodorderId)
-                purchase.foodorder = foodorder
-            except Foodorders.DoesNotExist:
-                raise ValueError(f"Foodorder with ID {foodorderId} does not exist.")
-
-        if drinkorderId:
-            try:
-                drinkorder = Drinkorders.objects.get(id=drinkorderId)
-                purchase.drinkorder = drinkorder
-            except Drinkorders.DoesNotExist:
-                raise ValueError(f"Drinkorder with ID {drinkorderId} does not exist.")
+        # if foodorderId:
+        #     try:
+        #         foodorder = Foodorders.objects.get(id=foodorderId)
+        #         purchase.foodorder = foodorder
+        #     except Foodorders.DoesNotExist:
+        #         raise ValueError(f"Foodorder with ID {foodorderId} does not exist.")
+        #
+        # if drinkorderId:
+        #     try:
+        #         drinkorder = Drinkorders.objects.get(id=drinkorderId)
+        #         purchase.drinkorder = drinkorder
+        #     except Drinkorders.DoesNotExist:
+        #         raise ValueError(f"Drinkorder with ID {drinkorderId} does not exist.")
 
         purchase.save()
         return purchase

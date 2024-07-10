@@ -14,7 +14,7 @@ class PurchaseView(viewsets.ViewSet):
     def createPurchase(self, request):
         try:
             data = request.data
-            print('data:', data)
+            print('data1:', data)
 
             userToken = data.get('userToken')
             accountId = self.redisService.getValueByKey(userToken)
@@ -29,17 +29,34 @@ class PurchaseView(viewsets.ViewSet):
             #         {"drinkorderId": 51}
             #     ]
             # }
+            foodorderItems = data.get('foodorderItems', [])
+            drinkorderItems = data.get('drinkorderItems', [])
+            purchaseItemList = []
+            for i in range(len(foodorderItems)):
+                food_item = foodorderItems[i]
+                drink_item = drinkorderItems[i]
+                purchaseItemList.append({
+                    'foodcartItemId': food_item['foodcartItemId'],
+                    'foodorderPrice': food_item['foodorderPrice'],
+                    'foodquantity': food_item['foodquantity'],
+                    'drinkcartItemId': drink_item['drinkcartItemId'],
+                    'drinkorderPrice': drink_item['drinkorderPrice'],
+                    'drinkquantity': drink_item['drinkquantity']
+                })
+
+            print(f"purchaseItemList: {purchaseItemList}")
+
             payload = data.get('payload')
 
-            foodorder = payload.get('order', [{}])[0]
-            drinkorder = payload.get('order', [{}])[1]
+            # foodorder = payload.get('order', [{}])[0]
+            # drinkorder = payload.get('order', [{}])[1]
+            #
+            # foodorderId = foodorder.get('foodorderId')
+            # drinkorderId = drinkorder.get('drinkorderId')
+            # print(f"foodorderId: {foodorderId}")
+            # print(f"drinkorderId: {drinkorderId}")
 
-            foodorderId = foodorder.get('foodorderId')
-            drinkorderId = drinkorder.get('drinkorderId')
-            print(f"foodorderId: {foodorderId}")
-            print(f"drinkorderId: {drinkorderId}")
-
-            purchaseId = self.purchaseService.createPurchase(accountId, foodorderId, drinkorderId)
+            purchaseId = self.purchaseService.createPurchase(accountId, purchaseItemList)
             return Response({'purchaseId': purchaseId}, status=status.HTTP_200_OK)
 
         except Exception as e:

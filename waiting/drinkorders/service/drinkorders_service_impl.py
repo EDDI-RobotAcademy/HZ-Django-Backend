@@ -35,7 +35,7 @@ class DrinkordersServiceImpl(DrinkordersService):
                     drinkorders,
                     drinkcartItem.drink,
                     item['drinkorderPrice'],
-                    item['quantity']
+                    item['drinkquantity']
                 )
 
             return drinkorders.id

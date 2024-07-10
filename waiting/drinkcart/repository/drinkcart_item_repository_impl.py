@@ -21,13 +21,13 @@ class DrinkcartItemRepositoryImpl(DrinkcartItemRepository):
 
     def register(self, drinkcartData, drinkcart, drink):
         drinkPrice = drinkcartData.get('drinkPrice')
-        quantity = drinkcartData.get('quantity')
+        drinkquantity = drinkcartData.get('drinkquantity')
 
         DrinkcartItem.objects.create(
             drinkcart=drinkcart,
             drink=drink,
-            quantity=quantity,
-            price=drinkPrice
+            drinkquantity=drinkquantity,
+            drinkprice=drinkPrice
         )
 
     def findById(self, id):

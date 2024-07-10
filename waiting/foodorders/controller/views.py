@@ -22,7 +22,7 @@ class FoodordersView(viewsets.ViewSet):
                 raise ValueError('Invalid userToken')
 
             foodorderItemList = data.get('items')
-            print(f"foodorderItemList: {foodorderItemList}")
+            # print(f"foodorderItemList: {foodorderItemList}")
 
             foodorderId = self.foodordersService.createFoodorder(accountId, foodorderItemList)
             return Response(foodorderId, status=status.HTTP_200_OK)
