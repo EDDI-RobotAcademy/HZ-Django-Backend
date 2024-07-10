@@ -10,6 +10,16 @@ class SubscriptionManageView(viewsets.ViewSet):
     subscriptionManageService = SubscriptionManageServiceImpl.getInstance()
 
     def list(self, request):
+        data = request.data
+        userToken = data.get('userToken')
+
+        if not userToken:
+            return Response({'error': 'User token is required'}, status = status.HTTP_400_BAD_REQUEST)
+
+        account_id = self.redisService.getValueByKey(userToken)
+        if not account_id:
+            return Response({'error': 'Invalid user token'}, status=status.HTTP_400_BAD_REQUEST)
+
         subscription_manage_list = self.subscriptionManageService.list()
         serializer = SubscriptionManageSerializer(subscription_manage_list, many=True)
         return Response(serializer.data)
@@ -18,7 +28,8 @@ class SubscriptionManageView(viewsets.ViewSet):
         try:
             data = request.data
 
-            account_id = data.get('account_id')
+            userToken = data.get('userToken')
+            account_id = self.redisService.getValueByKey(userToken)
             subscription_id = data.get('subscription_id')
             startDate = data.get('startDate')
             endDate = data.get('endDate')
