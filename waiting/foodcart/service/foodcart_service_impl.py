@@ -52,7 +52,7 @@ class FoodcartServiceImpl(FoodcartService):
         else:
             print("기존 음식 추가")
 
-            foodcartItem.quantity += 1
+            foodcartItem.foodquantity += 1
             self.__foodcartItemRepository.update(foodcartItem)
 
     def foodcartList(self, accountId):
@@ -71,7 +71,7 @@ class FoodcartServiceImpl(FoodcartService):
                 'foodType': foodcartItem.food.foodType,
                 'foodDescription': foodcartItem.food.foodDescription,
                 'foodPrice': foodcartItem.food.foodPrice,
-                'quantity': foodcartItem.quantity,
+                'foodquantity': foodcartItem.foodquantity,
             }
             foodcartItemListResponseForm.append(foodcartItemResponseForm)
 

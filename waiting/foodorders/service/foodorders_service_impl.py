@@ -35,7 +35,7 @@ class FoodordersServiceImpl(FoodordersService):
                     foodorders,
                     foodcartItem.food,
                     item['foodorderPrice'],
-                    item['quantity']
+                    item['foodquantity']
                 )
 
             return foodorders.id

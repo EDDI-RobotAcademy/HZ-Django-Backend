@@ -4,7 +4,7 @@ from django.db import models
 class Movie(models.Model):
     movieId = models.AutoField(primary_key=True)
     movieName = models.CharField(max_length=128, null=False)
-    movieReleaseDate = models.CharField(max_length=128, null=False)
+    movieReleaseDate = models.DateField(null=False)
     movieFilmRating = models.CharField(max_length=32, null=False)
     movieGenre = models.CharField(max_length=128, null=False)
     movieCountry = models.CharField(max_length=128, null=False)

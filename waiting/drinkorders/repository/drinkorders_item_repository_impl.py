@@ -19,7 +19,7 @@ class DrinkordersItemRepositoryImpl(DrinkordersItemRepository):
 
         return cls.__instance
 
-    def create(self, drinkorders, drink, price, quantity):
-        drinkorder_item = DrinkordersItem(drinkorders=drinkorders, drink=drink, price=price, quantity=quantity)
+    def create(self, drinkorders, drink, drinkprice, drinkquantity):
+        drinkorder_item = DrinkordersItem(drinkorders=drinkorders, drink=drink, drinkprice=drinkprice, drinkquantity=drinkquantity)
         drinkorder_item.save()
 

@@ -52,7 +52,7 @@ class DrinkcartServiceImpl(DrinkcartService):
         else:
             print("기존 음식 추가")
 
-            drinkcartItem.quantity += 1
+            drinkcartItem.drinkquantity += 1
             self.__drinkcartItemRepository.update(drinkcartItem)
 
     def drinkcartList(self, accountId):
@@ -71,7 +71,7 @@ class DrinkcartServiceImpl(DrinkcartService):
                 'drinkType': drinkcartItem.drink.drinkType,
                 'drinkDescription': drinkcartItem.drink.drinkDescription,
                 'drinkPrice': drinkcartItem.drink.drinkPrice,
-                'quantity': drinkcartItem.quantity,
+                'drinkquantity': drinkcartItem.drinkquantity,
             }
             drinkcartItemListResponseForm.append(drinkcartItemResponseForm)
 
