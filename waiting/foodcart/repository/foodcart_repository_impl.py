@@ -27,3 +27,7 @@ class FoodcartRepositoryImpl(FoodcartRepository):
         except Foodcart.DoesNotExist:
             return None
 
+    def findFoodcartIdByAccountId(self, accountId):
+        foodcart = Foodcart.objects.get(account_id=accountId)
+        return foodcart.foodcartId
+

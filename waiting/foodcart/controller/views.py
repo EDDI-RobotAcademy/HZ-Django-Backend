@@ -51,11 +51,7 @@ class FoodcartView(viewsets.ViewSet):
             if not accountId:
                 return Response({'error': 'Invalid user token'}, status=status.HTTP_400_BAD_REQUEST)
 
-            foodcartItemId = data.get('foodcartItemId')
-            if not foodcartItemId:
-                return Response({'error': 'foodcartItemId is required'}, status=status.HTTP_400_BAD_REQUEST)
-
-            self.foodcartService.removeFoodcartItem(accountId, foodcartItemId)
+            self.foodcartService.removeFoodcartItem(accountId)
             return Response(status=status.HTTP_200_OK)
 
         except Exception as e:

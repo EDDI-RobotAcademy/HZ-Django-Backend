@@ -10,4 +10,7 @@ class DrinkcartRepository(ABC):
     def findByAccount(self, account):
         pass
 
+    @abstractmethod
+    def findDrinkcartIdByAccountId(self, accountId):
+        pass
 

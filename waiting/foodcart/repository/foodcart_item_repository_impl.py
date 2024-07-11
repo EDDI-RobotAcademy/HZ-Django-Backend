@@ -47,3 +47,7 @@ class FoodcartItemRepositoryImpl(FoodcartItemRepository):
 
     def update(self, foodcartItem):
         foodcartItem.save()
+
+    def deleteByFoodcartId(self, foodcartId):
+        foodcartitem = FoodcartItem.objects.filter(foodcart_id=foodcartId)
+        foodcartitem.delete()

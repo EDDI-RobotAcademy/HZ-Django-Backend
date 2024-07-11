@@ -77,6 +77,12 @@ class FoodcartServiceImpl(FoodcartService):
 
         return foodcartItemListResponseForm
 
+    def removeFoodcartItem(self, accountId):
+        print(f"accountId: {accountId}")
+        foodcartId = self.__foodcartRepository.findFoodcartIdByAccountId(accountId)
+        print(f"foodcartId: {foodcartId}")
+        return self.__foodcartItemRepository.deleteByFoodcartId(foodcartId)
+
     # def cartList(self, accountId):
     #     return self.cartRepository.findByAccount(accountId)
 
