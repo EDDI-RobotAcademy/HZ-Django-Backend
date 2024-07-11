@@ -51,11 +51,11 @@ class DrinkcartView(viewsets.ViewSet):
             if not accountId:
                 return Response({'error': 'Invalid user token'}, status=status.HTTP_400_BAD_REQUEST)
 
-            drinkcartItemId = data.get('drinkcartItemId')
-            if not drinkcartItemId:
-                return Response({'error': 'drinkcartItemId is required'}, status=status.HTTP_400_BAD_REQUEST)
+            drinkcartId = data.get('drinkcartId')
+            if not drinkcartId:
+                return Response({'error': 'drinkcartId is required'}, status=status.HTTP_400_BAD_REQUEST)
 
-            self.drinkcartService.removeDrinkcartItem(accountId, drinkcartItemId)
+            self.drinkcartService.removeDrinkcartItem(accountId, drinkcartId)
             return Response(status=status.HTTP_200_OK)
 
         except Exception as e:

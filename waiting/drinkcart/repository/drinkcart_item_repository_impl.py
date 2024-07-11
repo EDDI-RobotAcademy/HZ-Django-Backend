@@ -47,3 +47,9 @@ class DrinkcartItemRepositoryImpl(DrinkcartItemRepository):
 
     def update(self, drinkcartItem):
         drinkcartItem.save()
+
+    def deleteByDrinkcartId(self, drinkcartId):
+        drinkcartitem = DrinkcartItem.objects.get(drinkcartId=drinkcartId)
+        drinkcartitem.delete()
+
+
