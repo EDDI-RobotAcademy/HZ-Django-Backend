@@ -25,3 +25,7 @@ class DrinkcartItemRepository(ABC):
     @abstractmethod
     def update(self, drinkcartItem):
         pass
+
+    @abstractmethod
+    def deleteByDrinkcartId(self, drinkcartId):
+        pass
