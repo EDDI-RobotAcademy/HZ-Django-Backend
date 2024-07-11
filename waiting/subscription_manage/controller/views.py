@@ -1,6 +1,7 @@
 from rest_framework import viewsets, status
 from rest_framework.response import Response
 
+from oauth.service.redis_service_impl import RedisServiceImpl
 from subscription_manage.entity.models import SubscriptionManage
 from subscription_manage.serializers import SubscriptionManageSerializer
 from subscription_manage.service.subscription_manage_service_impl import SubscriptionManageServiceImpl
@@ -8,6 +9,7 @@ from subscription_manage.service.subscription_manage_service_impl import Subscri
 class SubscriptionManageView(viewsets.ViewSet):
     queryset = SubscriptionManage.objects.all()
     subscriptionManageService = SubscriptionManageServiceImpl.getInstance()
+    redisService = RedisServiceImpl.getInstance()
 
     def list(self, request):
         data = request.data
@@ -29,6 +31,7 @@ class SubscriptionManageView(viewsets.ViewSet):
             data = request.data
 
             userToken = data.get('userToken')
+
             account_id = self.redisService.getValueByKey(userToken)
             subscription_id = data.get('subscription_id')
             startDate = data.get('startDate')
