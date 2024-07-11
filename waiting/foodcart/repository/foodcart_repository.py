@@ -9,3 +9,7 @@ class FoodcartRepository(ABC):
     @abstractmethod
     def findByAccount(self, account):
         pass
+
+    @abstractmethod
+    def findFoodcartIdByAccountId(self, accountId):
+        pass

@@ -77,7 +77,10 @@ class DrinkcartServiceImpl(DrinkcartService):
 
         return drinkcartItemListResponseForm
 
-    def removeDrinkcartItem(self, accountId, drinkcartId):
+    def removeDrinkcartItem(self, accountId):
+        print(f"accountId: {accountId}")
+        drinkcartId = self.__drinkcartRepository.findDrinkcartIdByAccountId(accountId)
+        print(f"drinkcartId: {drinkcartId}")
         return self.__drinkcartItemRepository.deleteByDrinkcartId(drinkcartId)
 
 

@@ -11,5 +11,5 @@ class DrinkcartService(ABC):
         pass
 
     @abstractmethod
-    def removeDrinkcartItem(self, accountId, drinkcartId):
+    def removeDrinkcartItem(self, accountId):
         pass

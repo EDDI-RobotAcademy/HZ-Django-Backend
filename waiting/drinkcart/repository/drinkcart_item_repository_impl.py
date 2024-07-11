@@ -49,7 +49,7 @@ class DrinkcartItemRepositoryImpl(DrinkcartItemRepository):
         drinkcartItem.save()
 
     def deleteByDrinkcartId(self, drinkcartId):
-        drinkcartitem = DrinkcartItem.objects.get(drinkcartId=drinkcartId)
+        drinkcartitem = DrinkcartItem.objects.filter(drinkcart_id=drinkcartId)
         drinkcartitem.delete()
 
 

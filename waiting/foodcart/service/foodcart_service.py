@@ -9,3 +9,7 @@ class FoodcartService(ABC):
     @abstractmethod
     def foodcartList(self, accountId):
         pass
+
+    @abstractmethod
+    def removeFoodcartItem(self, accountId):
+        pass
